@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bowling.Game
+﻿namespace Bowling.Game
 {
     /// <summary>
     /// Reperesents a super frame with up to two additinal rolls
@@ -36,7 +30,7 @@ namespace Bowling.Game
             // 0, 1, or 2 extra rolls
             bool isValid = FrameNumber == 10
                 && (RollExtraOne == null || RollExtraOne.Valid)
-                && (RollExtraTwo == null || RollExtraTwo.Valid)
+                && (RollExtraTwo == null || (RollExtraTwo.Valid && RollExtraOne != null && RollExtraOne.Valid))
                 && base.IsValid();
             return isValid;
         }

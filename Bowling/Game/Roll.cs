@@ -42,6 +42,7 @@ namespace Bowling.Game
         public int RollNumber { get; init; }
         public string Text { get; init; }
         public int? Points { get; init; }
+
         public RollType? Status { get; init; }
         public char StatusSymbol { get { return (Status.HasValue && RollSymbols.TryGetValue(Status.Value, out char symbol)) ? symbol : '?'; } }
         public string StatusDescription
@@ -60,15 +61,13 @@ namespace Bowling.Game
             bool isValid = ((RollNumber == 1 || RollNumber == 2)
                             && ((RollNumber == 2
                                     && (string.IsNullOrWhiteSpace(Text) || $"{RollSymbols[RollType.Skipped]}".Equals(Text.Trim())))
-                                )
                                 || (!string.IsNullOrWhiteSpace(Text)
                                     && Points.HasValue
                                     && Points.Value >= 0
                                     && Points.Value <= 10
                                     )
-                            )
-                        ? true
-                        : false;
+                                )
+                            );
             return isValid;
         }
 

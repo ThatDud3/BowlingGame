@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Bowling.Game
+﻿namespace Bowling.Game
 {
     public interface IGameScore
     {

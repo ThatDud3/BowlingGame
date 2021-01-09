@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using Bowling.Game;
+using Bowling.CustomRules;
 
 namespace Bowling.Game
 {
@@ -10,12 +10,17 @@ namespace Bowling.Game
         {
             if (File.Exists(path))
             {
+                CustomRulesProcessor customRules = new CustomRulesProcessor();
+                customRules.AddCutomRule(new CustomRuleMatchFrameNumber());
+                customRules.AddCutomRule(new CustomRuleMatchRolls());
+
                 int lineNum = 0;
                 foreach (string line in File.ReadLines(path))
                 {
                     if (!string.IsNullOrWhiteSpace(line) && !line.Trim().StartsWith('#'))
                     {
-                        IGameScore gameScore = new Game(++lineNum, line);
+                        customRules = null; // comment out to see custom rules in action
+                        IGameScore gameScore = new Game(++lineNum, line, customRules);
                         Console.WriteLine($"Score: {gameScore.Score} ::: Running Score: {gameScore.RunningScore}");
                     }
                     else
