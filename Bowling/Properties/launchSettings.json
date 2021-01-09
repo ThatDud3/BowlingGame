@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Bowling": {
+      "commandName": "Project",
+      "commandLineArgs": "bowling.txt"
+    }
+  }
+}
