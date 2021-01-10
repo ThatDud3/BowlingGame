@@ -12,7 +12,7 @@
         public bool Valid { get { return IsValid(); } }
         public virtual bool IsValid()
         {
-            bool isValid = (FrameNumber >= 1 && FrameNumber <= 10 && RollOne.Points + (RollTwo.Points ?? 0) <= 10) ? true : false;
+            bool isValid = (FrameNumber >= 1 && FrameNumber <= 10 && RollOne.Valid && RollTwo.Valid && RollOne.Points + (RollTwo.Points ?? 0) <= 10);
             return isValid;
         }
 

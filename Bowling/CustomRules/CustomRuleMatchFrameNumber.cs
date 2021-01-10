@@ -6,7 +6,7 @@ namespace Bowling.CustomRules
     /// When first roll is not a foul and points match the frame number
     /// add 'frame number' points to the frame score
     /// </summary>
-    class CustomRuleMatchFrameNumber : ICustomRule
+    public class CustomRuleMatchFrameNumber : ICustomRule
     {
         public void ApplyCustomRule(object data)
         {

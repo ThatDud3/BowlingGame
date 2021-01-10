@@ -7,7 +7,7 @@ namespace Bowling.CustomRules
     /// and first roll has same points as second roll
     /// add the sum (1st + 2nd) points to the frame score
     /// </summary>
-    class CustomRuleMatchRolls : ICustomRule
+    public class CustomRuleMatchRolls : ICustomRule
     {
         public void ApplyCustomRule(object data)
         {
